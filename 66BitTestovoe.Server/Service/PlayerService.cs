@@ -12,10 +12,12 @@ public class PlayerService: IPlayerService
 {
     private IPlayerRepository _playerRepository;
     private ITeamRepository _teamRepository;
-    public PlayerService(IPlayerRepository playerRepository, ITeamRepository teamRepository)
+    private ITeamService _teamService;
+    public PlayerService(IPlayerRepository playerRepository, ITeamRepository teamRepository, ITeamService teamService)
     {
         _teamRepository = teamRepository;
         _playerRepository = playerRepository;
+        _teamService = teamService;
     }
 
     public async Task CreatePlayer(PlayerModelCreate playerModelCreate)
@@ -24,7 +26,7 @@ public class PlayerService: IPlayerService
         var team = await _teamRepository.GetByName(playerModelCreate.TeamName);
         if (team is null)
         {
-            team = await CreateTeam(playerModelCreate);
+            team = await _teamService.CreateTeam(playerModelCreate.TeamName);
         }
         
         var player = new PlayerDal
@@ -54,7 +56,7 @@ public class PlayerService: IPlayerService
 
         if (team is null)
         {
-            team = await CreateTeam(playerEditModel);
+            team = await _teamService.CreateTeam(playerEditModel.TeamName);
         }
         
         currentPlayer.FirstName = playerEditModel.FirstName;
@@ -68,21 +70,7 @@ public class PlayerService: IPlayerService
         await _playerRepository.EditPlayer(currentPlayer);
         return true;
     }
-
-    private async Task<TeamDal> CreateTeam(PlayerModelCreate playerModelCreate)
-    {
-        var teamId = new Uuid7().ToGuid();
-        var newTeam = new TeamDal()
-        {
-            Id = teamId,
-            TeamName = playerModelCreate.TeamName,
-            Players = []
-        };
-        await _teamRepository.CreateTeam(newTeam);
-
-        return newTeam;
-    }
-
+    
     public Task<List<PlayerOutput>> GetAllPlayers()
     {
        return _playerRepository.GetAllPlayers();
