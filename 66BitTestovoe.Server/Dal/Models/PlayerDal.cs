@@ -13,8 +13,6 @@ public class PlayerDal: BaseEntity
     public Gender Gender { get; set; }
     public string Country { get; set; }
     public DateTime BirthDate { get; set; }
-    
-    [JsonIgnore]
     public Guid TeamID { get; set; }
     public TeamDal Team { get; set; }
     
