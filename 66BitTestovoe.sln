@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34316.72
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "66BitTestovoe.Server", "66BitTestovoe.Server\66BitTestovoe.Server.csproj", "{D56014FF-40C5-472F-8A48-3882E4BAD56D}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "66bittestovoe.client", "66bittestovoe.client\66bittestovoe.client.esproj", "{1DD03154-A247-4DAA-A53D-28E98A838B36}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D56014FF-40C5-472F-8A48-3882E4BAD56D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D56014FF-40C5-472F-8A48-3882E4BAD56D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D56014FF-40C5-472F-8A48-3882E4BAD56D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D56014FF-40C5-472F-8A48-3882E4BAD56D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DD03154-A247-4DAA-A53D-28E98A838B36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DD03154-A247-4DAA-A53D-28E98A838B36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DD03154-A247-4DAA-A53D-28E98A838B36}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{1DD03154-A247-4DAA-A53D-28E98A838B36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DD03154-A247-4DAA-A53D-28E98A838B36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DD03154-A247-4DAA-A53D-28E98A838B36}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AAF2038E-B24C-469E-9FD4-FE8958D9FB48}
+	EndGlobalSection
+EndGlobal
