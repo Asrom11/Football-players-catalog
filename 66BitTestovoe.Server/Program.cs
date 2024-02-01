@@ -32,14 +32,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-else
+
+using (var scope = app.Services.CreateScope())
 {
-    app.UseHsts();
-    using (var scope = app.Services.CreateScope())
-    {
-        var context = scope.ServiceProvider.GetRequiredService<ApplicationContextDb>();
-        await context.Database.MigrateAsync();
-    }
+    var context = scope.ServiceProvider.GetRequiredService<ApplicationContextDb>();
+    await context.Database.MigrateAsync();
 }
 
 app.UseHttpsRedirection();
